@@ -1,11 +1,11 @@
 /* stile scrollbar*/
-#main{
-    overflow-y: scroll;
-    height: 90vh;
+#main {
+  overflow-y: scroll;
+  height: 90vh;
 }
 
-#main::-webkit-scrollbar{
-    width: 10px;
+#main::-webkit-scrollbar {
+  width: 10px;
 }
 
 #main::-webkit-scrollbar-track {
@@ -20,3 +20,5 @@
   background: #555;
 }
 /* fine stile scrollbar*/
+
+/* stile nav bar */
