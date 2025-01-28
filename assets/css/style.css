@@ -1,7 +1,14 @@
 /* stile scrollbar*/
 #main {
   overflow-y: scroll;
-  height: 90vh;
+  height: 100vh;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
 #main::-webkit-scrollbar {
