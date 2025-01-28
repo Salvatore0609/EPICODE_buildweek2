@@ -1,300 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+  <body>
+    <header>
+      <nav class="navbar bg-black" id="navbar">
+        <div class="container-fluid">
+          <a href="./index.html" class="fs-2 me-auto">
+            <i class="bi bi-spotify text-white"></i>
+          </a>
 
-<body>
-  <header>
-    <nav class="navbar bg-black" id="navbar">
-      <div class="container-fluid">
-        <a href="./index.html" class="fs-2 me-auto">
-          <i class="bi bi-spotify text-white"></i>
-        </a>
-
-        <form class="d-flex me-auto" role="search">
-          <div class="input-group">
-            <a href="./index.html" class=" text-decoration-none">
-              <i class="bi bi-house-door d-flex align-items-center fs-2 text-white me-3 bg-dark p-2 rounded-circle"></i>
-              <button class="btn btn-dark rounded-start-pill" type="submit"></a>
-            <i class="bi bi-search"></i>
-            </button>
-            <input class="form-control bg-dark border-0" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-dark rounded-end-pill text-white" type="submit">
-              <i class="bi bi-archive"></i>
-            </button>
+          <form class="d-flex me-auto" role="search">
+            <div class="input-group">
+              <a href="./index.html" class="text-decoration-none">
+                <i class="bi bi-house-door d-flex align-items-center fs-2 text-white me-3 bg-dark p-2 rounded-circle"></i>
+              </a>
+              <button class="btn btn-dark rounded-start-pill" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+              <input class="form-control bg-dark border-0" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-dark rounded-end-pill text-white" type="submit">
+                <i class="bi bi-archive"></i>
+              </button>
+            </div>
+          </form>
+          <div class="d-flex align-items-center gap-3">
+            <div class="d-flex">
+              <i class="bi bi-arrow-down-circle me-1 text-white"></i>
+              <p class="m-0 text-white">Installa app</p>
+            </div>
+            <i class="bi bi-bell text-white ms-3"></i>
+            <img src="assets/imgs/main/image-1.jpg" alt="profilo" width="40px" height="40px" class="rounded-circle" />
           </div>
-        </form>
-        <div class="d-flex align-items-center gap-3">
-          <div class="d-flex">
-            <i class="bi bi-arrow-down-circle me-1 text-white"></i>
-            <p class="m-0 text-white">Installa app</p>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2 bg-dark text-white">
+          <div class="d-flex mt-3 mb-4">
+            <i class="bi bi-bookmarks me-3"></i>
+            <a href="#" class="text-white text-decoration-none">
+              <p>LA TUA LIBRERIA</p>
+            </a>
           </div>
-          <i class="bi bi-bell text-white ms-3"></i>
-          <img src="assets/imgs/main/image-1.jpg" alt="profilo" width="40px" height="40px" class="rounded-circle" />
+          <div class="d-flex mt-1">
+            <i class="bi bi-plus-square-fill me-3"></i>
+            <a href="#" class="text-white text-decoration-none">
+              <p>Crea playlist</p>
+            </a>
+          </div>
+          <div class="d-flex mt-1">
+            <i class="bi bi-heart-fill me-3"></i>
+            <a href="#" class="text-white text-decoration-none">
+              <p>Brani che ti piacciono</p>
+            </a>
+          </div>
+          <div class="d-flex mt-1">
+            <i class="bi bi-bookmark me-3"></i>
+            <a href="#" class="text-white text-decoration-none">
+              <p>I tuoi episodi</p>
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2 bg-dark text-white">
-        <div class="d-flex mt-3 mb-4">
-          <i class="bi bi-bookmarks me-3"></i>
-          <a href="#" class="text-white text-decoration-none">
-            <p>LA TUA LIBRERIA</p>
-          </a>
-        </div>
-        <div class="d-flex mt-1">
-          <i class="bi bi-plus-square-fill me-3"></i>
-          <a href="#" class="text-white text-decoration-none">
-            <p>Crea playlist</p>
-          </a>
-        </div>
-        <div class="d-flex mt-1">
-          <i class="bi bi-heart-fill me-3"></i>
-          <a href="#" class="text-white text-decoration-none">
-            <p>Brani che ti piacciono</p>
-          </a>
-        </div>
-        <div class="d-flex mt-1">
-          <i class="bi bi-bookmark me-3"></i>
-          <a href="#" class="text-white text-decoration-none">
-            <p>I tuoi episodi</p>
-          </a>
-        </div>
-      </div>
+        <div id="main" class="col-10 bg-black text-white">
+          <main>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="container d-flex bg-dark">
+                  <div class="d-flex align-items-center me-auto">
+                    <a href="#"><i class="fas fa-chevron-left me-3 text-white"></i></a>
+                    <a href="#"><i class="fas fa-chevron-right text-white"></i></a>
+                  </div>
 
-      <div id="main" class="col-10 bg-black text-white">
-        <main>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="container d-flex bg-dark">
-                <div class="d-flex align-items-center me-auto">
-                  <a href="#"><i class="fas fa-chevron-left me-3 text-white"></i></a>
-                  <a href="#"><i class="fas fa-chevron-right text-white"></i></a>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-black text-white border-white dropdown-toggle rounded-pill"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Mario Rossi
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
                 </div>
-
-                <div class="dropdown">
-                  <button class="btn btn-black text-white border-white dropdown-toggle rounded-pill" type="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Mario Rossi
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-12 bg-dark d-flex  ">
-                <img src="./assets/imgs/main/image-10.jpg" alt="" />
-                <div class="position-relative d-flex flex-column justify-content-center ms-5">
-                  <h1>Viola (feat. Salmo)</h1>
-                  <p>Fedez</p>
-                  <p>Acolta il nuovo brano</p>
-                  <div class="position-absolute bottom-0 start-0 mb-2 ms-2 d-flex">
-                    <button class="btn btn-success rounded-pill px-4 me-3">Play</button>
-                    <button class="btn btn-dark rounded-pill text-white border-white px-4 me-3">Salva</button>
-                    <button class="btn btn-dark border-0"><i class="bi bi-three-dots"></i></button>
+                <div class="col-12 bg-dark d-flex">
+                  <img src="./assets/imgs/main/image-10.jpg" alt="" />
+                  <div class="position-relative d-flex flex-column justify-content-center ms-5">
+                    <h1>Viola (feat. Salmo)</h1>
+                    <p>Fedez</p>
+                    <p>Acolta il nuovo brano</p>
+                    <div class="position-absolute bottom-0 start-0 mb-2 ms-2 d-flex">
+                      <button class="btn btn-success rounded-pill px-4 me-3 text-black">Play</button>
+                      <button class="btn btn-dark rounded-pill text-white border-white px-4 me-3">Salva</button>
+                      <button class="btn btn-dark border-0"><i class="bi bi-three-dots"></i></button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="container-fluid bg-secondary">
-            <div class="row"></div>
-            <i class="bi bi-play-circle-fill"></i>
-            <i class="bi bi-heart"></i>
-            <i class="bi bi-download"></i>
-            <i class="bi bi-three-dots"></i>
-          </div>
-
-          <div>
-            <div class="d-flex bg-secondary">
-              <p class="me-auto">#TITOLO</p>
-              <p class=" ms-4 me-auto">RIPRODUZIONI</p>
-              <i class="bi bi-stopwatch"></i>
+            <div class="container-fluid bg-dark">
+                <div class="d-flex align-items-center gap-3 py-3">
+                    <i class="bi bi-play-circle-fill fs-1 text-success"></i>
+                    <i class="bi bi-heart fs-4"></i>
+                    <i class="bi bi-download fs-4"></i>
+                    <i class="bi bi-three-dots fs-4"></i>
+                </div>
             </div>
 
-            <ol class="list-group-numbered p-0">
+            <!---->
+            <div>
+                <div class="d-flex align-items-center bg-dark text-white">
+                    <p class="me-auto ms-3">#TITOLO</p>
+                    <p class="ms-4 me-auto">RIPRODUZIONI</p>
+                    <i class="bi bi-stopwatch mb-3 me-4"></i>
+                </div>
 
+              <ol class="list-group list-group-flush list-group-numbered">
+                <li class="d-flex list-group-item bg-dark text-white border-0 ">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+                <li class="d-flex list-group-item bg-dark text-white border-0">
+                  <p class="me-auto">titolo della canzone</p>
+                  <p class="me-auto">244.242</p>
+                  <p class="me-1">1.28</p>
+                </li>
+              </ol>
+            </div>
+            <!---->
+          </main>
 
+          <footer class="footer text-white py-4 bg-dark">
+            <div class="container mx-auto">
+              <div class="row">
+                <!-- Colonna 1 -->
+                <div class="col-md-2">
+                  <ul class="list-unstyled">
+                    <li class="h6">Azienda</li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Chi siamo</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Opportunità di lavoro</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">For the Record</a></li>
+                  </ul>
+                </div>
+  
+                <!-- Colonna 2 -->
+                <div class="col-md-2">
+                  <ul class="list-unstyled">
+                    <li class="h6">Community</li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Per artisti</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Sviluppatori</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Pubblicità</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Investitori</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Venditori</a></li>
+                  </ul>
+                </div>
+  
+                <!-- Colonna 3 -->
+                <div class="col-md-2">
+                  <ul class="list-unstyled">
+                    <li class="h6">Link utili</li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Assistenza</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">App per cellulare gratuita</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Diritti del consumatore</a></li>
+                  </ul>
+                </div>
+  
+                <!-- Colonna 4 -->
+                <div class="col-md-2">
+                  <ul class="list-unstyled">
+                    <li class="h6">Piani Spotify</li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Premium Individual</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Premium Duo</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Premium Family</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Premium Student</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Spotify Free</a></li>
+                  </ul>
+                </div>
+  
+                <!-- Colonna 5 -->
+                <div class="col-md-4">
+                  <div class="d-flex gap-3 mb-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      fill="currentColor"
+                      class="bi bi-facebook"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      fill="currentColor"
+                      class="bi bi-instagram"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      fill="currentColor"
+                      class="bi bi-twitter"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
               
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-              </li>
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-              </li>
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-              </li>
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-              <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
-
-
-                <p class=" ms-2 mb-0 me-auto">titolo della canzone</p>
-                <p class="mb-0 me-auto">244.242</p>
-                <p class="mb-0 me-1">1.28</p>
-
-              </li>
-            </ol>
-          </div>
-        </main>
-
-        <footer class="footer text-secondary py-4 bg-dark">
-          <div class="container mx-auto">
-            <div class="row">
-              <!-- Colonna 1 -->
-              <div class="col-md-2">
-                <ul class="list-unstyled">
-                  <li class="h6">Azienda</li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Chi siamo</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Opportunità di lavoro</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">For the Record</a></li>
-                </ul>
-              </div>
-
-              <!-- Colonna 2 -->
-              <div class="col-md-2">
-                <ul class="list-unstyled">
-                  <li class="h6">Community</li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Per artisti</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Sviluppatori</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Pubblicità</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Investitori</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Venditori</a></li>
-                </ul>
-              </div>
-
-              <!-- Colonna 3 -->
-              <div class="col-md-2">
-                <ul class="list-unstyled">
-                  <li class="h6">Link utili</li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Assistenza</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">App per cellulare gratuita</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Diritti del consumatore</a></li>
-                </ul>
-              </div>
-
-              <!-- Colonna 4 -->
-              <div class="col-md-2">
-                <ul class="list-unstyled">
-                  <li class="h6">Piani Spotify</li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Premium Individual</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Premium Duo</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Premium Family</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Premium Student</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Spotify Free</a></li>
-                </ul>
-              </div>
-
-              <!-- Colonna 5 -->
-              <div class="col-md-4">
-                <div class="d-flex gap-3 mb-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-facebook" viewBox="0 0 16 16">
-                    <path
-                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-instagram" viewBox="0 0 16 16">
-                    <path
-                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-twitter" viewBox="0 0 16 16">
-                    <path
-                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
-                  </svg>
+              <div class="row mt-4">
+                <div class="col-12">
+                  <p class="mb-0">© 2025 Spotify AB</p>
                 </div>
               </div>
             </div>
-
-            <!-- Service Code e Copyright -->
-            <div class="row mt-4">
-              <div class="col-12">
-                <p class="mb-0">© 2025 Spotify AB</p>
-              </div>
-            </div>
-          </div>
-        </footer>
+          </footer>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
