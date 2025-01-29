@@ -105,7 +105,7 @@ function fetchAlbum(query) {
                       </div>
                       <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body p-0">
-                          <a href="./pageAlbum.html?songId=${album.id}" class="text-white text-decoration-none">
+                          <a href="./pageAlbum.html?albumId=${album.id}" class="text-white text-decoration-none">
                             <p class="card-text ms-2">${album.title}</p>
                           </a>
                         </div>
