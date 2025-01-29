@@ -33,11 +33,15 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId, {
 
     songsList.forEach((song) => {
       listSong.innerHTML += `
-                <li class="d-flex list-group-item bg-dark text-white border-0 ">
-                  <p class="me-auto">${song.title}</p>
-                  <p class="me-auto">${song.rank}</p>
-                  <p class="me-1">${song.duration} sec</p>
-                </li>`;
+                    <li class="list-group list-group-horizontal rounded-0 bg-dark text-white border-0">
+                      <div class="container-fluid">
+                        <div class="row">
+                          <p class="col-6">${song.title}</p>
+                          <p class="col-2">${song.rank}</p>
+                          <p class="col text-end">${song.duration} sec</p>
+                        </div>
+                      </div>
+                    </li>`;
     });
   })
   .catch((err) => console.log(err));
