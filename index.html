@@ -29,14 +29,14 @@
             <i class="bi bi-spotify text-white"></i>
           </a>
           
-          <form class="d-flex me-auto" role="search">
+          <form id="formSpotifySearch" class="d-flex me-auto" role="search">
             <div class="input-group">
               <a href="./index.html" class=" text-decoration-none">
               <i class="bi bi-house-door d-flex align-items-center fs-2 text-white me-3 bg-dark p-2 rounded-circle"></i>
-              <button class="btn btn-dark rounded-start-pill" type="submit"></a>
+              <button id="btnSearch" class="btn btn-dark rounded-start-pill" type="submit"></a>
                 <i class="bi bi-search"></i>
               </button>
-              <input class="form-control bg-dark border-0" type="search" placeholder="Search" aria-label="Search" />
+              <input id="search" class="form-control bg-dark border-0 text-white" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-dark rounded-end-pill text-white" type="submit">
                 <i class="bi bi-archive"></i>
               </button>
@@ -111,12 +111,12 @@
                 </div>
 
 
-                <div class="col-12 bg-dark d-flex  ">
+                <div id="firstCard" class="col-12 bg-dark d-flex  ">
                   <img src="./assets/imgs/main/image-10.jpg" alt="" />
                   <div class="position-relative d-flex flex-column justify-content-center ms-5">
                     <h1>Viola (feat. Salmo)</h1>
                     <p>Fedez</p>
-                    <p>Acolta il nuovo brano</p>
+                    <p>Ascolta il nuovo brano</p>
                     <div class="position-absolute bottom-0 start-0 mb-2 ms-2 d-flex">
                       <button class="btn btn-success rounded-pill px-4 me-3">Play</button>
                       <button class="btn btn-dark rounded-pill text-white border-white px-4 me-3">Salva</button>
@@ -135,8 +135,23 @@
 
             <div class="container-fluid bg-dark">
               <h3 class="fw-bold py-4">Buonasera</h3>
-              <div class="row g-3">
-                <div class="col-4">
+              <div id="secondCard" class="">
+                <!-- <div class="col-4">
+                  <div class="card mb-3">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded-start" alt="..." />
+                      </div>
+                      <div class="col-md-8 d-flex align-items-center">
+                        <div class="card-body p-0">
+                          <p class="card-text ms-2">blablabla</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+               <!--  <div class="col-4">
                   <div class="card mb-3">
                     <div class="row g-0">
                       <div class="col-md-4">
@@ -209,22 +224,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div class="col-4">
-                  <div class="card mb-3">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded-start" alt="..." />
-                      </div>
-                      <div class="col-md-8 d-flex align-items-center">
-                        <div class="card-body p-0">
-                          <p class="card-text ms-2">blablabla</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </div> -->
               </div>
             </div>
 
@@ -387,5 +387,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="./script.js"></script>
   </body>
 </html>
