@@ -1,7 +1,7 @@
 /* const URL = "https://deezerdevs-deezer.p.rapidapi.com/search" */
 
 
-const secondCard = document.getElementById("secondCard");
+
 
 /* const firstCard = document.getElementById("firstCard");
 const search = document.getElementById("search")
@@ -69,67 +69,8 @@ function fetchSongs(query) {
 } */
 
 
-/* function fetchAlbum(query) {
-    const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${query}`
-
-    fetch(URL, {
-        headers: {
-            "Content-Type": "application/json",
-            'x-rapidapi-key': 'a0f81ebcf9mshd58ff0b75cbb17ap1a0a4ejsn6ea766dd0c85',
-            'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com'
-        }
-    })
-    .then(resp => {
-        console.log(resp);
-    
-        if (resp.ok) {
-          return resp.json();
-        } else {
-          throw new Error("Ci dispiace ma non abbiamo le tua canzone");
-        }
-    })
-    .then(dataAlbum => {
-        console.log(dataAlbum)
-
-        secondCard.innerHTML = ""
-
-        const albumList = dataAlbum.data.slice(0, 6)
-
-        albumList.data.forEach((albumPar, index) => {  
-
-            const album = albumPar.album;
-
-            console.log(album);
-    
-          const div = document.createElement("div");
-          div.classList.add("col-4")
-    
-            div.innerHTML = `
-                  <div class="card mb-3">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="${album.cover_small}" class="img-fluid rounded-start" alt="image" />
-                      </div>
-                      <div class="col-md-8 d-flex align-items-center">
-                        <div class="card-body p-0">
-                          <p class="card-text ms-2">${album.title}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>`;
-    
-            secondCard.appendChild(div);
-        });
-    })
-    .catch(err => {
-        console.log(err);
-    })
-    
-}
-
-window.onload = () => {
-    fetchAlbum()
-} */
+const secondCard = document.getElementById("secondCard");
+const thirdCard = document.getElementById("thirdCard")
 
 function fetchAlbum(query) {
     const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${query}`;
@@ -188,14 +129,56 @@ function fetchAlbum(query) {
 }
 
 
+function fetchAlbum2(query) {
+    const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${query}`;
 
+    fetch(URL, {
+        headers: {
+            "Content-Type": "application/json",
+            'x-rapidapi-key': 'a0f81ebcf9mshd58ff0b75cbb17ap1a0a4ejsn6ea766dd0c85',
+            'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com'
+        }
+    })
+    .then(resp => {
+        if (resp.ok) {
+          return resp.json();
+        } else {
+          throw new Error("Ci dispiace ma non abbiamo trovato la tua canzone");
+        }
+    })
+    .then(dataAlbum => {
+        thirdCard.innerHTML = ""; 
+        
+        const albumList = dataAlbum.data.sort(() => Math.random() - 0.5).slice(0, 5); 
+    
 
+        albumList.forEach(albumPar => {  
+            const album = albumPar.album;
+            
+            const div = document.createElement("div");
+            div.classList.add("col"); 
+            
+            Math.floor(Math.random(albumPar.album))
 
+            div.innerHTML = `
+                
+                  <div class="card bg-dark text-secondary border-0">
+                    <img src="${album.cover_big}" class="card-img-top" alt="..." />
+                    <div class="card-body p-0 pb-2">
+                      <h5 class="card-title">${album.title}</h5>
+                      <p class="card-text">${album.type}</p>
+                    </div>`;
 
-
+            thirdCard.appendChild(div);
+            thirdCard.classList.add("row", "gx-3", "gy-3");
+        });
+    })
+    .catch(err => console.log(err));
+}
 
 window.onload = () => {
     fetchAlbum();
+    fetchAlbum2("rihanna")
 };
 
 
