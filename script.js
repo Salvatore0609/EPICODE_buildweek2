@@ -1,8 +1,5 @@
 /* const URL = "https://deezerdevs-deezer.p.rapidapi.com/search" */
 
-
-
-
 /* const firstCard = document.getElementById("firstCard");
 const search = document.getElementById("search")
 const btnSearch = document.getElementById("btnSearch")
@@ -68,42 +65,39 @@ function fetchSongs(query) {
     })
 } */
 
-
 const secondCard = document.getElementById("secondCard");
-const thirdCard = document.getElementById("thirdCard")
+const thirdCard = document.getElementById("thirdCard");
 
 function fetchAlbum(query) {
-    const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${query}`;
-
-    fetch(URL, {
-        headers: {
-            "Content-Type": "application/json",
-            'x-rapidapi-key': 'a0f81ebcf9mshd58ff0b75cbb17ap1a0a4ejsn6ea766dd0c85',
-            'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com'
-        }
+  const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${query}`;
+  fetch(URL, {
+    headers: {
+      "Content-Type": "application/json",
+      "x-rapidapi-key": "a0f81ebcf9mshd58ff0b75cbb17ap1a0a4ejsn6ea766dd0c85",
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw new Error("Ci dispiace ma non abbiamo trovato la tua canzone");
+      }
     })
-    .then(resp => {
-        if (resp.ok) {
-          return resp.json();
-        } else {
-          throw new Error("Ci dispiace ma non abbiamo trovato la tua canzone");
-        }
-    })
-    .then(dataAlbum => {
-        secondCard.innerHTML = ""; // Svuota il contenitore
-        
-        const albumList = dataAlbum.data.sort(() => Math.random() - 0.5).slice(0, 6); 
-    
+    .then((dataAlbum) => {
+      secondCard.innerHTML = ""; // Svuota il contenitore
 
-        albumList.forEach((albumPar, index) => {  
-            const album = albumPar.album;
-            
-            const div = document.createElement("div");
-            div.classList.add("col-md-4");
-            
-            Math.floor(Math.random(albumPar.album))
+      const albumList = dataAlbum.data.sort(() => Math.random() - 0.5).slice(0, 6);
 
-            div.innerHTML = `
+      albumList.forEach((albumPar, index) => {
+        const album = albumPar.album;
+
+        const div = document.createElement("div");
+        div.classList.add("col-md-4");
+
+        Math.floor(Math.random(albumPar.album));
+
+        div.innerHTML = `
                 <div class="card mb-3 bg-dark border-secondary text-light">
                     <div class="row g-0">
                       <div class="col-md-4">
@@ -111,56 +105,56 @@ function fetchAlbum(query) {
                       </div>
                       <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body p-0">
-                          <p class="card-text ms-2">${album.title}</p>
+                          <a href="./pageAlbum.html?songId=${album.id}" class="text-white text-decoration-none">
+                            <p class="card-text ms-2">${album.title}</p>
+                          </a>
                         </div>
                       </div>
                     </div>
                 </div>`;
 
-            secondCard.appendChild(div);
+        secondCard.appendChild(div);
 
-            // Ogni 3 card, crea una nuova riga
-            if ((index + 1) % 3 === 0) {
-                secondCard.classList.add("row", "gx-3", "gy-3");
-            }
-        });
+        // Ogni 3 card, crea una nuova riga
+        if ((index + 1) % 3 === 0) {
+          secondCard.classList.add("row", "gx-3", "gy-3");
+        }
+      });
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 }
 
-
 function fetchAlbum2(query) {
-    const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${query}`;
+  const URL = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${query}`;
 
-    fetch(URL, {
-        headers: {
-            "Content-Type": "application/json",
-            'x-rapidapi-key': 'a0f81ebcf9mshd58ff0b75cbb17ap1a0a4ejsn6ea766dd0c85',
-            'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com'
-        }
+  fetch(URL, {
+    headers: {
+      "Content-Type": "application/json",
+      "x-rapidapi-key": "a0f81ebcf9mshd58ff0b75cbb17ap1a0a4ejsn6ea766dd0c85",
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw new Error("Ci dispiace ma non abbiamo trovato la tua canzone");
+      }
     })
-    .then(resp => {
-        if (resp.ok) {
-          return resp.json();
-        } else {
-          throw new Error("Ci dispiace ma non abbiamo trovato la tua canzone");
-        }
-    })
-    .then(dataAlbum => {
-        thirdCard.innerHTML = ""; 
-        
-        const albumList = dataAlbum.data.sort(() => Math.random() - 0.5).slice(0, 5); 
-    
+    .then((dataAlbum) => {
+      thirdCard.innerHTML = "";
 
-        albumList.forEach(albumPar => {  
-            const album = albumPar.album;
-            
-            const div = document.createElement("div");
-            div.classList.add("col"); 
-            
-            Math.floor(Math.random(albumPar.album))
+      const albumList = dataAlbum.data.sort(() => Math.random() - 0.5).slice(0, 5);
 
-            div.innerHTML = `
+      albumList.forEach((albumPar) => {
+        const album = albumPar.album;
+
+        const div = document.createElement("div");
+        div.classList.add("col");
+
+        Math.floor(Math.random(albumPar.album));
+
+        div.innerHTML = `
                 
                   <div class="card bg-dark text-secondary border-0">
                     <img src="${album.cover_big}" class="card-img-top" alt="..." />
@@ -169,18 +163,14 @@ function fetchAlbum2(query) {
                       <p class="card-text">${album.type}</p>
                     </div>`;
 
-            thirdCard.appendChild(div);
-            thirdCard.classList.add("row", "gx-3", "gy-3");
-        });
+        thirdCard.appendChild(div);
+        thirdCard.classList.add("row", "gx-3", "gy-3");
+      });
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 }
 
 window.onload = () => {
-    fetchAlbum();
-    fetchAlbum2("rihanna")
+  fetchAlbum();
+  fetchAlbum2("rihanna");
 };
-
-
-
-
