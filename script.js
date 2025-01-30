@@ -251,20 +251,20 @@ document.getElementById("playButton").addEventListener("click", function () {
 }); */
 
 function createToast() {
-    // Crea il Toast (senza contenitore esterno per occupare tutta la larghezza)
-    const toast = document.createElement("div");
-    toast.id = "playToast";
-    toast.classList.add("toast", "align-items-center", "text-bg-dark", "border-0");
-    toast.style.position = "fixed"; // Posizionamento fisso nella parte inferiore
-    toast.style.bottom = "0"; // Posizione in basso
-    toast.style.left = "50%"; // Posizionato al centro orizzontale
-    toast.style.transform = "translateX(-50%)"; // Centro orizzontalmente
-    toast.style.width = "100vw"; // Estendi il toast su tutta la larghezza della finestra
-    toast.style.zIndex = "1050"; // Assicurati che sia sopra ad altri elementi
-    toast.setAttribute("data-bs-autohide", "false");
-  
-    // Crea il contenuto del Toast con il pulsante di chiusura incluso
-    toast.innerHTML = `
+  // Crea il Toast (senza contenitore esterno per occupare tutta la larghezza)
+  const toast = document.createElement("div");
+  toast.id = "playToast";
+  toast.classList.add("toast", "align-items-center", "text-bg-dark", "border-0");
+  toast.style.position = "fixed"; // Posizionamento fisso nella parte inferiore
+  toast.style.bottom = "0"; // Posizione in basso
+  toast.style.left = "50%"; // Posizionato al centro orizzontale
+  toast.style.transform = "translateX(-50%)"; // Centro orizzontalmente
+  toast.style.width = "100vw"; // Estendi il toast su tutta la larghezza della finestra
+  toast.style.zIndex = "1050"; // Assicurati che sia sopra ad altri elementi
+  toast.setAttribute("data-bs-autohide", "false");
+
+  // Crea il contenuto del Toast con il pulsante di chiusura incluso
+  toast.innerHTML = `
     <div class="">
       <div class="toast-body">
         <div class="container-fluid toast-content" style="width: 100%; max-width: none;" data-bs-autohide="false">
@@ -278,11 +278,11 @@ function createToast() {
   
             <!-- Colonna 2: Controlli di riproduzione e barra di avanzamento -->
             <div class="col-4 d-flex align-items-center justify-content-center">
-              <div class="d-flex align-items-center">
-                <button id="playPauseButton" class="btn btn-success rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+              <div class="d-flex align-items-center flex-column flex-grow-1">
+                <button id="playPauseButton" class="btn btn-success rounded-circle d-flex justify-content-center mb-2" style="width: 40px; height: 40px;">
                   <i class="bi bi-play-fill" style="color: black;"></i>
                 </button>
-                <div class="progress w-100 flex-grow-1 me-2" style="height: 5px;">
+                <div class="progress w-100 me-2" style="height: 5px;">
                   <div class="progress-bar" role="progressbar" style="width: 18%; height: 5px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <span>00:58 / 03:20</span>
@@ -303,24 +303,23 @@ function createToast() {
         </div>
       </div>
     </div>`;
-  
-    return toast;
-  }
-  
-  // Aggiungi il Toast al DOM quando clicchi su "Play"
-  document.getElementById("playButton").addEventListener("click", function () {
-    const toast = createToast();
-    document.body.appendChild(toast);
-  
-    // Inizializza il Toast di Bootstrap
-    const toastElement = document.getElementById("playToast");
-    const toastInstance = new bootstrap.Toast(toastElement);
-  
-    toastInstance.show();
-  
-    // Rimuovi il Toast quando è nascosto
-    toastElement.addEventListener("hidden.bs.toast", function () {
-      toast.remove();
-    });
+
+  return toast;
+}
+
+// Aggiungi il Toast al DOM quando clicchi su "Play"
+document.getElementById("playButton").addEventListener("click", function () {
+  const toast = createToast();
+  document.body.appendChild(toast);
+
+  // Inizializza il Toast di Bootstrap
+  const toastElement = document.getElementById("playToast");
+  const toastInstance = new bootstrap.Toast(toastElement);
+
+  toastInstance.show();
+
+  // Rimuovi il Toast quando è nascosto
+  toastElement.addEventListener("hidden.bs.toast", function () {
+    toast.remove();
   });
-  
+});
