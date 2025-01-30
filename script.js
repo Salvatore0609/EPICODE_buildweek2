@@ -84,18 +84,20 @@ function fetchAlbum(query) {
         throw new Error("Ci dispiace ma non abbiamo trovato la tua canzone");
       }
     })
-    .then((dataAlbum) => {
+    .then((dataInformation) => {
       secondCard.innerHTML = ""; // Svuota il contenitore
 
-      const albumList = dataAlbum.data.sort(() => Math.random() - 0.5).slice(0, 6);
+      const albumList = dataInformation.data.sort(() => Math.random() - 0.5).slice(0, 6);
+      const artists = dataInformation.data;
 
-      albumList.forEach((albumPar, index) => {
-        const album = albumPar.album;
+      albumList.forEach((par, index) => {
+        const album = par.album;
+        const artist = par.artist;
 
         const div = document.createElement("div");
         div.classList.add("col-md-4");
 
-        Math.floor(Math.random(albumPar.album));
+        Math.floor(Math.random(par.album));
 
         div.innerHTML = `
                 <div class="card mb-3 bg-dark border-secondary text-light">
@@ -107,6 +109,9 @@ function fetchAlbum(query) {
                         <div class="card-body p-0">
                           <a href="./pageAlbum.html?albumId=${album.id}" class="text-white text-decoration-none">
                             <p class="card-text ms-2">${album.title}</p>
+                          </a>
+                          <a href="./pageArtist.html?artistId=${artist.id}" class="text-white text-decoration-none">
+                            <p class="card-text ms-2">${artist.name}</p>
                           </a>
                         </div>
                       </div>
