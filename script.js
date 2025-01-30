@@ -181,10 +181,7 @@ window.onload = () => {
   fetchAlbum();
   fetchAlbum2();
 };
-
-
-
-
+/* 
 // Funzione per creare il Toast
 function createToast() {
   // Crea il contenitore del Toast
@@ -204,11 +201,10 @@ function createToast() {
   const toastBody = document.createElement("div");
   toastBody.classList.add("toast-body");
   toastBody.innerHTML = `
-                    <div class="toast-content" style="width: 100%; max-width: none;">
-                      <div class="toast-header bg-dark text-white">
+                    <div class="toast-content d-flex" style="width: 100%; max-width: none;" data-bs-autohide="false">
+                      <div class="toast-header bg-dark text-white d-flex">
                         <img src="path/to/album-cover.jpg" class="rounded me-2" alt="Album Cover" style="width: 50px;">
                         <strong class="me-auto">Fat Funny Friend - Maddie Zahm</strong>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
                       </div>
                       <div class="toast-body bg-dark text-white">
                         <div class="d-flex align-items-center">
@@ -227,7 +223,6 @@ function createToast() {
   closeButton.setAttribute("data-bs-dismiss", "toast");
   closeButton.setAttribute("aria-label", "Chiudi");
 
-
   toastContent.appendChild(toastBody);
   toastContent.appendChild(closeButton);
   toast.appendChild(toastContent);
@@ -240,8 +235,7 @@ function createToast() {
 
 // Aggiungi il Toast al DOM quando clicchi su "Play"
 document.getElementById("playButton").addEventListener("click", function () {
-
-const toastContainer = createToast();
+  const toastContainer = createToast();
 
   document.body.appendChild(toastContainer);
 
@@ -249,10 +243,78 @@ const toastContainer = createToast();
   const toastElement = document.getElementById("playToast");
   const toast = new bootstrap.Toast(toastElement);
 
-
   toast.show();
 
   toastElement.addEventListener("hidden.bs.toast", function () {
     toastContainer.remove();
+  });
+}); */
+
+function createToast() {
+  // Crea il Toast (senza contenitore esterno per occupare tutta la larghezza)
+  const toast = document.createElement("div");
+  toast.id = "playToast";
+  toast.classList.add("toast", "align-items-center", "text-bg-dark", "border-0");
+  toast.style.position = "fixed"; // Posizionamento fisso nella parte inferiore
+  toast.style.bottom = "0"; // Posizione in basso
+  toast.style.left = "50%"; // Posizionato al centro orizzontale
+  toast.style.transform = "translateX(-50%)"; // Centro orizzontalmente
+  toast.style.width = "100vw"; // Estendi il toast su tutta la larghezza della finestra
+  toast.style.zIndex = "1050"; // Assicurati che sia sopra ad altri elementi
+  toast.setAttribute("data-bs-autohide", "false");
+
+  // Crea il contenuto del Toast
+  const toastContent = document.createElement("div");
+  toastContent.classList.add("d-flex");
+
+  const toastBody = document.createElement("div");
+  toastBody.classList.add("toast-body");
+  toastBody.innerHTML = `
+                    <div class="toast-content d-flex" style="width: 100%; max-width: none;" data-bs-autohide="false">
+                      <div class="toast-header bg-dark text-white d-flex">
+                        <img src="path/to/album-cover.jpg" class="rounded me-2" alt="Album Cover" style="width: 50px;">
+                        <strong class="me-auto">Fat Funny Friend - Maddie Zahm</strong>
+                      </div>
+                      <div class="toast-body bg-dark text-white">
+                        <div class="d-flex align-items-center">
+                          <button id="playPauseButton" class="btn btn-success rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                            <i class="bi bi-play-fill" style="color: black;"></i>
+                          </button>
+                          <div class="progress flex-grow-1 me-2" style="height: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 18%;" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>00:58 / 03:20</span>
+                        </div>
+                      </div>
+                    </div>`;
+
+  const closeButton = document.createElement("button");
+  closeButton.type = "button";
+  closeButton.classList.add("btn-close", "btn-close-white", "me-2", "m-auto");
+  closeButton.setAttribute("data-bs-dismiss", "toast");
+  closeButton.setAttribute("aria-label", "Chiudi");
+
+  toastContent.appendChild(toastBody);
+  toastContent.appendChild(closeButton);
+  toast.appendChild(toastContent);
+
+  // Restituisci il Toast
+  return toast;
+}
+
+// Aggiungi il Toast al DOM quando clicchi su "Play"
+document.getElementById("playButton").addEventListener("click", function () {
+  const toast = createToast();
+  document.body.appendChild(toast);
+
+  // Inizializza il Toast di Bootstrap
+  const toastElement = document.getElementById("playToast");
+  const toastInstance = new bootstrap.Toast(toastElement);
+
+  toastInstance.show();
+
+  // Rimuovi il Toast quando è nascosto
+  toastElement.addEventListener("hidden.bs.toast", function () {
+    toast.remove();
   });
 });
