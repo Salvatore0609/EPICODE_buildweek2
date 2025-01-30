@@ -265,17 +265,19 @@ function createToast() {
 
   // Crea il contenuto del Toast
   const toastContent = document.createElement("div");
-  toastContent.classList.add("d-flex");
+  /* toastContent.classList.add("d-flex", "justify-content-between"); */
 
   const toastBody = document.createElement("div");
   toastBody.classList.add("toast-body");
   toastBody.innerHTML = `
-                    <div class="toast-content d-flex" style="width: 100%; max-width: none;" data-bs-autohide="false">
-                      <div class="toast-header bg-dark text-white d-flex">
+                    <div class="container-fluid toast-content" style="width: 100%; max-width: none;" data-bs-autohide="false">
+                    <div class="row">
+                      <div class="col-4 me-auto toast-header bg-dark text-white d-flex">
                         <img src="path/to/album-cover.jpg" class="rounded me-2" alt="Album Cover" style="width: 50px;">
                         <strong class="me-auto">Fat Funny Friend - Maddie Zahm</strong>
+                        <i class="far fa-heart"></i>
                       </div>
-                      <div class="toast-body bg-dark text-white">
+                      <div class="col-4 me-auto toast-body bg-dark text-white">
                         <div class="d-flex align-items-center">
                           <button id="playPauseButton" class="btn btn-success rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
                             <i class="bi bi-play-fill" style="color: black;"></i>
@@ -286,11 +288,20 @@ function createToast() {
                           <span>00:58 / 03:20</span>
                         </div>
                       </div>
+                      <div class="col-4">
+                        <i class="fas fa-microphone"></i>
+                        <i class="fas fa-bars"></i>
+                        <i class="bi bi-speaker"></i>
+                        <i class="fa-solid fa-volume-high"></i>
+                        <i class="fas fa-expand-alt"></i>
+                      </div>
+                    </div>
+                      
                     </div>`;
 
   const closeButton = document.createElement("button");
   closeButton.type = "button";
-  closeButton.classList.add("btn-close", "btn-close-white", "me-2", "m-auto");
+  closeButton.classList.add("btn-close", "btn-close-white", "me-2", "my-auto");
   closeButton.setAttribute("data-bs-dismiss", "toast");
   closeButton.setAttribute("aria-label", "Chiudi");
 
