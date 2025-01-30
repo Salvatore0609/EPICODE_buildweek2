@@ -38,7 +38,7 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId, {
                         <div class="row">
                           <p class="col-6">${song.title}</p>
                           <p class="col-2">${song.rank}</p>
-                          <p class="col text-end">${song.duration} sec</p>
+                          <p class="col text-end">${Math.floor(song.duration / 60)}:${(song.duration % 60).toString().padStart(2, "0")}</p>
                         </div>
                       </div>
                     </li>`;
