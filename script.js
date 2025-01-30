@@ -178,148 +178,135 @@ function fetchAlbum2(query) {
 }
 
 window.onload = () => {
-  fetchAlbum();
-  fetchAlbum2();
+    currentTrack() 
+    fetchAlbum();
+    fetchAlbum2();
 };
-/* 
-// Funzione per creare il Toast
-function createToast() {
-  // Crea il contenitore del Toast
-  const toastContainer = document.createElement("div");
-  toastContainer.classList.add("position-fixed", "bottom-0", "start-50", "translate-middle-x", "p-3");
-  toastContainer.style.zIndex = "1050";
 
-  // Crea il Toast
-  const toast = document.createElement("div");
-  toast.id = "playToast";
-  toast.classList.add("toast", "align-items-center", "text-bg-dark", "border-0");
-
-  // Crea il contenuto del Toast
-  const toastContent = document.createElement("div");
-  toastContent.classList.add("d-flex");
-
-  const toastBody = document.createElement("div");
-  toastBody.classList.add("toast-body");
-  toastBody.innerHTML = `
-                    <div class="toast-content d-flex" style="width: 100%; max-width: none;" data-bs-autohide="false">
-                      <div class="toast-header bg-dark text-white d-flex">
-                        <img src="path/to/album-cover.jpg" class="rounded me-2" alt="Album Cover" style="width: 50px;">
-                        <strong class="me-auto">Fat Funny Friend - Maddie Zahm</strong>
-                      </div>
-                      <div class="toast-body bg-dark text-white">
-                        <div class="d-flex align-items-center">
-                          <button id="playPauseButton" class="btn btn-primary me-2">Play</button>
-                          <div class="progress flex-grow-1 me-2" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 18%;" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span>00:58 / 03:20</span>
-                        </div>
-                      </div>
-                    </div>`;
-
-  const closeButton = document.createElement("button");
-  closeButton.type = "button";
-  closeButton.classList.add("btn-close", "btn-close-white", "me-2", "m-auto");
-  closeButton.setAttribute("data-bs-dismiss", "toast");
-  closeButton.setAttribute("aria-label", "Chiudi");
-
-  toastContent.appendChild(toastBody);
-  toastContent.appendChild(closeButton);
-  toast.appendChild(toastContent);
-
-  toastContainer.appendChild(toast);
-
-  // Restituisci il contenitore del Toast
-  return toastContainer;
+function currentTrack() {
+     // Recupera i dati della traccia dal localStorage
+     const currentTrack = JSON.parse(localStorage.getItem("currentTrack"));
+  
+     // Se i dati esistono, crea e mostra il toast automaticamente
+     if (currentTrack) {
+       const toast = createToast(currentTrack);
+       document.body.appendChild(toast);
+   
+       const toastElement = document.getElementById("playToast");
+       const toastInstance = new bootstrap.Toast(toastElement);
+       toastInstance.show();
+   
+       // Rimuovi il toast quando è nascosto
+       toastElement.addEventListener("hidden.bs.toast", function () {
+         toast.remove();
+         localStorage.removeItem("currentTrack");
+       });
+     }
 }
 
-// Aggiungi il Toast al DOM quando clicchi su "Play"
-document.getElementById("playButton").addEventListener("click", function () {
-  const toastContainer = createToast();
 
-  document.body.appendChild(toastContainer);
-
-  // Inizializza il Toast di Bootstrap
-  const toastElement = document.getElementById("playToast");
-  const toast = new bootstrap.Toast(toastElement);
-
-  toast.show();
-
-  toastElement.addEventListener("hidden.bs.toast", function () {
-    toastContainer.remove();
-  });
-}); */
-
-function createToast() {
-  // Crea il Toast (senza contenitore esterno per occupare tutta la larghezza)
-  const toast = document.createElement("div");
-  toast.id = "playToast";
-  toast.classList.add("toast", "align-items-center", "text-bg-dark", "border-0");
-  toast.style.position = "fixed"; // Posizionamento fisso nella parte inferiore
-  toast.style.bottom = "0"; // Posizione in basso
-  toast.style.left = "50%"; // Posizionato al centro orizzontale
-  toast.style.transform = "translateX(-50%)"; // Centro orizzontalmente
-  toast.style.width = "100vw"; // Estendi il toast su tutta la larghezza della finestra
-  toast.style.zIndex = "1050"; // Assicurati che sia sopra ad altri elementi
-  toast.setAttribute("data-bs-autohide", "false");
-
-  // Crea il contenuto del Toast con il pulsante di chiusura incluso
-  toast.innerHTML = `
-    <div class="">
-      <div class="toast-body">
-        <div class="container-fluid toast-content" style="width: 100%; max-width: none;" data-bs-autohide="false">
-          <div class="row align-items-center">
-            <!-- Colonna 1: Copertina album e titolo -->
-            <div class="col-4 d-flex align-items-center">
-              <img src="path/to/album-cover.jpg" class="rounded me-2" alt="Album Cover" style="width: 50px;">
-              <strong class="me-3">Fat Funny Friend - Maddie Zahm</strong>
-              <i class="far fa-heart"></i>
-            </div>
+function createToast(track) {
+    const toast = document.createElement("div");
+    toast.id = "playToast";
+    toast.classList.add("toast", "align-items-center", "text-bg-dark");
+    toast.style.position = "fixed";
+    toast.style.bottom = "0";
+    toast.style.left = "50%";
+    toast.style.transform = "translateX(-50%)";
+    toast.style.width = "100vw";
+    toast.style.zIndex = "1050";
+    toast.style.borderTop = "1px secondary solid";
   
-            <!-- Colonna 2: Controlli di riproduzione e barra di avanzamento -->
-            <div class="col-4 d-flex align-items-center justify-content-center">
-              <div class="d-flex align-items-center flex-column flex-grow-1">
-                <button id="playPauseButton" class="btn btn-success rounded-circle d-flex justify-content-center mb-2" style="width: 40px; height: 40px;">
-                  <i class="bi bi-play-fill" style="color: black;"></i>
-                </button>
-                <div class="progress w-100 me-2" style="height: 5px;">
-                  <div class="progress-bar" role="progressbar" style="width: 18%; height: 5px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span>00:58 / 03:20</span>
+    toast.setAttribute("data-bs-autohide", "false");
+  
+    toast.innerHTML = `
+      <div class="">
+        <div class="toast-body">
+          <div class="container-fluid toast-content" style="width: 100%; max-width: none;" data-bs-autohide="false">
+            <div class="row align-items-center">
+              <!-- Colonna 1: Copertina album e titolo -->
+              <div class="col-4 d-flex align-items-center">
+                <img src="${track.album.cover_small}" class="rounded me-2" alt="Album Cover" style="width: 50px;">
+                <strong class="me-3">${track.title}</strong>
+                <i class="far fa-heart"></i>
               </div>
-            </div>
-  
-            <!-- Colonna 3: Icone aggiuntive e pulsante di chiusura -->
+    
+            
+              <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                <div class="d-flex align-items-center mb-2">
+                  <button id="prevButton" class="btn btn-dark rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                    <i class="fa-solid fa-shuffle"></i>
+                  </button>
+                  <button id="prevButton" class="btn btn-dark rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                    <i class="fa-solid fa-backward-step" style="color: white;"></i>
+                  </button>
+                  <button id="playPauseButton" class="btn btn-light rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                    <i class="bi bi-play-fill" style="color: black;"></i>
+                  </button>
+                  <button id="nextButton" class="btn btn-dark rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                    <i class="fa-solid fa-forward-step" style="color: white;"></i>
+                  </button>
+                  <button id="prevButton" class="btn btn-dark rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                    <i class="fa-solid fa-retweet"></i>
+                  </button>
+                </div>
+                <div class="d-flex align-items-center w-100">
+                  <span class="me-2">00:58</span>
+                  <div class="progress flex-grow-1 bg-secondary" style="height: 5px;">
+                    <div class="progress-bar bg-white" role="progressbar" style="width: 18%; height: 5px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <span class="ms-2">${Math.floor(track.duration / 60)}:${(track.duration % 				60).toString().padStart(2, "0")}</span>
+                </div>
+              </div>
             <div class="col-4 d-flex align-items-center justify-content-end">
               <i class="fas fa-microphone me-3"></i>
               <i class="fas fa-bars me-3"></i>
               <i class="bi bi-speaker me-3"></i>
               <i class="fa-solid fa-volume-high me-3"></i>
               <i class="fas fa-expand-alt me-3"></i>
-              <!-- Pulsante di chiusura -->
               <button type="button" class="btn-close btn-close-white me-2" data-bs-dismiss="toast" aria-label="Chiudi"></button>
             </div>
           </div>
         </div>
       </div>
     </div>`;
-
+  
   return toast;
 }
 
-// Aggiungi il Toast al DOM quando clicchi su "Play"
+
 document.getElementById("playButton").addEventListener("click", function () {
   const toast = createToast();
   document.body.appendChild(toast);
 
-  // Inizializza il Toast di Bootstrap
+  
   const toastElement = document.getElementById("playToast");
   const toastInstance = new bootstrap.Toast(toastElement);
 
   toastInstance.show();
 
-  // Rimuovi il Toast quando è nascosto
+ 
   toastElement.addEventListener("hidden.bs.toast", function () {
     toast.remove();
   });
+});
+
+
+
+function prevCommand() {
+  history.back();
+}
+
+function nextCommand() {
+  history.forward(); 
+}
+
+document.getElementById("prevCommand").addEventListener("click", function (event) {
+  event.preventDefault();
+  prevCommand();
+});
+
+document.getElementById("nextCommand").addEventListener("click", function (event) {
+  event.preventDefault();
+  nextCommand();
 });

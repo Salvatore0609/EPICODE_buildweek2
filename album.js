@@ -72,3 +72,22 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId, {
       });
     });
 }; */
+
+
+function prevCommand() {
+  history.back();
+}
+
+function nextCommand() {
+  history.forward(); 
+}
+
+document.getElementById("prevCommand").addEventListener("click", function (event) {
+  event.preventDefault();
+  prevCommand();
+});
+
+document.getElementById("nextCommand").addEventListener("click", function (event) {
+  event.preventDefault();
+  nextCommand();
+});
