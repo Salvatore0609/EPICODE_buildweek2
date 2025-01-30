@@ -108,7 +108,7 @@ function fetchAlbum(query) {
                       <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body p-0">
                           <a href="./pageAlbum.html?albumId=${album.id}" class="text-white text-decoration-none">
-                            <p class="card-text ms-2">${album.title}</p>
+                            <p class="card-text ms-2 mb-4">${album.title}</p>
                           </a>
                           <a href="./pageArtist.html?artistId=${artist.id}" class="text-white text-decoration-none">
                             <p class="card-text ms-2">${artist.name}</p>
@@ -163,8 +163,10 @@ function fetchAlbum2(query) {
                 
                   <div class="card bg-dark text-secondary border-0">
                     <img src="${album.cover_big}" class="card-img-top" alt="..." />
-                    <div class="card-body p-0 pb-2">
-                      <h5 class="card-title">${album.title}</h5>
+                    <div class="card-body text-white p-0 pb-2">
+                        <a href="./pageAlbum.html?albumId=${album.id}" class="text-white text-decoration-none">
+                            <h5 class="card-text">${album.title}</h5>
+                        </a>
                       <p class="card-text">${album.type}</p>
                     </div>`;
 
@@ -177,5 +179,80 @@ function fetchAlbum2(query) {
 
 window.onload = () => {
   fetchAlbum();
-  fetchAlbum2("rihanna");
+  fetchAlbum2();
 };
+
+
+
+
+// Funzione per creare il Toast
+function createToast() {
+  // Crea il contenitore del Toast
+  const toastContainer = document.createElement("div");
+  toastContainer.classList.add("position-fixed", "bottom-0", "start-50", "translate-middle-x", "p-3");
+  toastContainer.style.zIndex = "1050";
+
+  // Crea il Toast
+  const toast = document.createElement("div");
+  toast.id = "playToast";
+  toast.classList.add("toast", "align-items-center", "text-bg-dark", "border-0");
+
+  // Crea il contenuto del Toast
+  const toastContent = document.createElement("div");
+  toastContent.classList.add("d-flex");
+
+  const toastBody = document.createElement("div");
+  toastBody.classList.add("toast-body");
+  toastBody.innerHTML = `
+                    <div class="toast-content" style="width: 100%; max-width: none;">
+                      <div class="toast-header bg-dark text-white">
+                        <img src="path/to/album-cover.jpg" class="rounded me-2" alt="Album Cover" style="width: 50px;">
+                        <strong class="me-auto">Fat Funny Friend - Maddie Zahm</strong>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                      </div>
+                      <div class="toast-body bg-dark text-white">
+                        <div class="d-flex align-items-center">
+                          <button id="playPauseButton" class="btn btn-primary me-2">Play</button>
+                          <div class="progress flex-grow-1 me-2" style="height: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 18%;" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span>00:58 / 03:20</span>
+                        </div>
+                      </div>
+                    </div>`;
+
+  const closeButton = document.createElement("button");
+  closeButton.type = "button";
+  closeButton.classList.add("btn-close", "btn-close-white", "me-2", "m-auto");
+  closeButton.setAttribute("data-bs-dismiss", "toast");
+  closeButton.setAttribute("aria-label", "Chiudi");
+
+
+  toastContent.appendChild(toastBody);
+  toastContent.appendChild(closeButton);
+  toast.appendChild(toastContent);
+
+  toastContainer.appendChild(toast);
+
+  // Restituisci il contenitore del Toast
+  return toastContainer;
+}
+
+// Aggiungi il Toast al DOM quando clicchi su "Play"
+document.getElementById("playButton").addEventListener("click", function () {
+
+const toastContainer = createToast();
+
+  document.body.appendChild(toastContainer);
+
+  // Inizializza il Toast di Bootstrap
+  const toastElement = document.getElementById("playToast");
+  const toast = new bootstrap.Toast(toastElement);
+
+
+  toast.show();
+
+  toastElement.addEventListener("hidden.bs.toast", function () {
+    toastContainer.remove();
+  });
+});
