@@ -34,7 +34,7 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId, {
     const albumHeader = document.getElementById("albumHeader");
     const artist = album.artist;
     albumHeader.innerHTML = `
-                  <img src="${album.cover_big}" alt="" />
+                  <img src="${album.cover_medium}" alt="" />
                   <div class="position-relative d-flex flex-column justify-content-center ms-5">
                     <h1>${album.title}</h1>
                     <p>${artist.name}</p>
@@ -58,9 +58,7 @@ fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumId, {
                           </a>
                         </div>
                           <p class="col-2">${song.rank}</p>
-                          <p class="col text-end">${Math.floor(song.duration / 60)}:${(song.duration % 60)
-        .toString()
-        .padStart(2, "0")}</p>
+                          <p class="col text-end">${Math.floor(song.duration / 60)}:${(song.duration % 60).toString().padStart(2, "0")}</p>
                         </div>
                       </div>
                     </li>`;
@@ -142,9 +140,7 @@ function createToast(track) {
                   <div class="progress flex-grow-1 bg-secondary" style="height: 5px;">
                     <div class="progress-bar bg-white" role="progressbar" style="width: 18%; height: 5px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <span class="ms-2">${Math.floor(track.duration / 60)}:${(track.duration % 60)
-    .toString()
-    .padStart(2, "0")}</span>
+                  <span class="ms-2">${Math.floor(track.duration / 60)}:${(track.duration % 60).toString().padStart(2, "0")}</span>
                 </div>
               </div>
             <div class="col-4 d-none d-sm-flex align-items-center justify-content-end">
@@ -176,20 +172,22 @@ function createToast(track) {
 function prevCommand() {
   history.back();
 }
-
-function nextCommand() {
-  history.forward();
-}
-
-document.getElementById("prevCommand").addEventListener("click", function (event) {
+const prevButton = document.getElementById("prevCommand")
+prevButton.addEventListener("click", function (event) {
   event.preventDefault();
   prevCommand();
 });
 
-document.getElementById("nextCommand").addEventListener("click", function (event) {
-  event.preventDefault();
-  nextCommand();
-});
+function nextCommand() {
+  history.forward();
+}
+const nextButton = document.getElementById("nextCommand");
+if (nextButton) {
+  nextButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    nextCommand();
+  });
+}
 
 function fetchSongs(query) {
   fetch(`${URL}?q=${query}`, {

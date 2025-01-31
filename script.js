@@ -255,19 +255,23 @@ function createToast(track) {
   return toast;
 }
 
-document.getElementById("playButton").addEventListener("click", function () {
-  const toast = createToast();
-  document.body.appendChild(toast);
+const playButton = document.getElementById("playButton")
+if(playButton) {
+  playButton.addEventListener("click", function () {
+    const toast = createToast();
+    document.body.appendChild(toast);
 
-  const toastElement = document.getElementById("playToast");
-  const toastInstance = new bootstrap.Toast(toastElement);
+    const toastElement = document.getElementById("playToast");
+    const toastInstance = new bootstrap.Toast(toastElement);
 
-  toastInstance.show();
+    toastInstance.show();
 
-  toastElement.addEventListener("hidden.bs.toast", function () {
-    toast.remove();
+    toastElement.addEventListener("hidden.bs.toast", function () {
+      toast.remove();
+    });
   });
-});
+}
+
 
 function prevCommand() {
   history.back();
@@ -279,7 +283,7 @@ function nextCommand() {
 
 const prevButton = document.getElementById("prevCommand");
 if (prevButton) {
-  // 👈 Controlla se il bottone esiste
+
   prevButton.addEventListener("click", function (event) {
     event.preventDefault();
     prevCommand();
@@ -290,7 +294,6 @@ if (prevButton) {
 
 const nextButton = document.getElementById("nextCommand");
 if (nextButton) {
-  // 👈 Controlla se il bottone esiste
   nextButton.addEventListener("click", function (event) {
     event.preventDefault();
     nextCommand();

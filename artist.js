@@ -61,14 +61,14 @@ fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + artistId, {
       li.innerHTML = `
         <div class="container-fluid">
           <div class="row">
-            <div class="d-flex align-items-center col-6">
+            <div class="d-flex align-items-center col-12 col-sm col-md-6">
               <img src="${track.album.cover_small}" alt="Cover" class="ms-2">
               <a href="#" class="text-light text-decoration-none track-link">
                 <p class="ms-3">${track.title}</p>
               </a>
             </div>
-            <p class="col-2">${track.rank}</p>
-            <p class="col text-end">${Math.floor(track.duration / 60)}:${(track.duration % 60)
+            <p class="col-2 d-none d-md-block">${track.rank}</p>
+            <p class="col text-end d-none d-sm-block">${Math.floor(track.duration / 60)}:${(track.duration % 60)
         .toString()
         .padStart(2, "0")}</p>
           </div>
@@ -195,10 +195,30 @@ document.getElementById("prevCommand").addEventListener("click", function (event
   prevCommand();
 });
 
-document.getElementById("nextCommand").addEventListener("click", function (event) {
-  event.preventDefault();
-  nextCommand();
-});
+
+const nextButton = document.getElementById("nextCommand");
+if (nextButton) {
+  nextButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    nextCommand();
+
+    // Aggiungi il codice per mostrare il toast
+    const currentTrack = JSON.parse(localStorage.getItem("currentTrack"));
+
+    if (currentTrack) {
+      const toast = createToast(currentTrack);
+      document.body.appendChild(toast);
+
+      const toastElement = document.getElementById("playToast");
+      const toastInstance = new bootstrap.Toast(toastElement);
+      toastInstance.show();
+
+      toastElement.addEventListener("hidden.bs.toast", function () {
+        toast.remove();
+      });
+    }
+  });
+}
 
 function fetchSongs(query) {
   fetch(`${URL}?q=${query}`, {
