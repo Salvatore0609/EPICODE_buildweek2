@@ -189,7 +189,7 @@ function createToast(track) {
   toast.setAttribute("data-bs-autohide", "false");
 
   toast.innerHTML = `
-      <div class="">
+      <div>
         <div class="toast-body">
           <div class="container-fluid toast-content" style="width: 100%; max-width: none;" data-bs-autohide="false">
             <div class="row justify-content-center align-items-center">
@@ -197,7 +197,7 @@ function createToast(track) {
               <div class="col-4 d-none d-sm-flex align-items-center">
                 <img src="${track.album.cover_small}" class="rounded me-2" alt="Album Cover" style="width: 50px;">
                 <strong class="me-3">${track.title}</strong>
-                <i class="far fa-heart"></i>
+                <i class="far fa-heart d-none d-md-block"></i>
               </div>
     
             
@@ -230,11 +230,21 @@ function createToast(track) {
                 </div>
               </div>
             <div class="col-4 d-none d-sm-flex align-items-center justify-content-end">
-              <i class="fas fa-microphone me-3"></i>
-              <i class="fas fa-bars me-3"></i>
-              <i class="bi bi-speaker me-3"></i>
-              <i class="fa-solid fa-volume-high me-3"></i>
-              <i class="fas fa-expand-alt me-3"></i>
+              <button class="btn btn-dark rounded-circle  d-none d-md-block" style="width: 40px; height: 40px;">
+                <i class="fas fa-microphone me-3"></i>
+              </button>
+              <button class="btn btn-dark rounded-circle" style="width: 40px; height: 40px;">
+                <i class="fas fa-bars me-3"></i>
+              </button>
+              <button class="btn btn-dark rounded-circle d-none d-md-block" style="width: 40px; height: 40px;">
+                <i class="bi bi-speaker me-3"></i>
+              </button>
+              <button class="btn btn-dark rounded-circle" style="width: 40px; height: 40px;">
+                <i class="fa-solid fa-volume-high me-3"></i>
+              </button>
+              <button class="btn btn-dark rounded-circle d-none d-md-block" style="width: 40px; height: 40px;">
+                <i class="fas fa-expand-alt me-3"></i>
+              </button>
               <button type="button" class="btn-close btn-close-white me-2" data-bs-dismiss="toast" aria-label="Chiudi"></button>
             </div>
           </div>

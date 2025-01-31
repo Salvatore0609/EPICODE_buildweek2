@@ -1,134 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+  <body>
+    <header>
+      <nav class="navbar bg-black" id="navbar">
+        <div class="container-fluid">
+          <a href="./index.html" class="fs-2 me-auto">
+            <i class="bi bi-spotify text-white"></i>
+          </a>
 
-<body>
-  <header>
-    <nav class="navbar bg-black" id="navbar">
-      <div class="container-fluid">
-        <a href="./index.html" class="fs-2 me-auto">
-          <i class="bi bi-spotify text-white"></i>
-        </a>
+          <form id="formSpotifySearch" class="d-flex me-auto" role="search">
+            <div class="input-group">
+              <a href="./index.html" class="text-decoration-none">
+                <i
+                  class="bi bi-house-door d-flex align-items-center fs-2 text-white me-3 bg-dark p-2 rounded-circle"
+                ></i>
+              </a>
+              <button id="btnSearch" class="btn btn-dark rounded-start-pill" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+              <input
+                id="search"
+                class="form-control bg-dark border-0 text-white"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-dark rounded-end-pill text-white" type="submit">
+                <i class="bi bi-archive"></i>
+              </button>
+            </div>
+          </form>
+          <div class="d-flex align-items-center gap-3">
+            <div class="d-flex">
+              <i class="bi bi-arrow-down-circle me-1 text-white"></i>
+              <p class="m-0 text-white">Installa app</p>
+            </div>
+            <i class="bi bi-bell text-white ms-3"></i>
+            <img src="assets/imgs/main/image-1.jpg" alt="profilo" width="40px" height="40px" class="rounded-circle" />
+          </div>
+        </div>
+      </nav>
+    </header>
 
-        <form id="formSpotifySearch" class="d-flex me-auto" role="search">
-          <div class="input-group">
-            <a href="./index.html" class="text-decoration-none">
-              <i
-                class="bi bi-house-door d-flex align-items-center fs-2 text-white me-3 bg-dark p-2 rounded-circle"
-              ></i>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-1 col-md-2 bg-dark text-white">
+          <div class="d-flex justify-content-center justify-content-md-start mt-3 mb-4">
+            <i class="bi bi-bookmarks me-md-3"></i>
+            <a href="#" class="text-white text-decoration-none d-none d-md-block">
+              <p>LA TUA LIBRERIA</p>
             </a>
-            <button id="btnSearch" class="btn btn-dark rounded-start-pill" type="submit">
-              <i class="bi bi-search"></i>
-            </button>
-            <input
-              id="search"
-              class="form-control bg-dark border-0 text-white"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-dark rounded-end-pill text-white" type="submit">
-              <i class="bi bi-archive"></i>
-            </button>
           </div>
-        </form>
-        <div class="d-flex align-items-center gap-3">
-          <div class="d-flex">
-            <i class="bi bi-arrow-down-circle me-1 text-white"></i>
-            <p class="m-0 text-white">Installa app</p>
+          <div class="d-flex justify-content-center justify-content-md-start mt-1">
+            <i class="bi bi-plus-square-fill me-md-3"></i>
+            <a href="#" class="text-white text-decoration-none d-none d-md-block">
+              <p>Crea playlist</p>
+            </a>
           </div>
-          <i class="bi bi-bell text-white ms-3"></i>
-          <img src="assets/imgs/main/image-1.jpg" alt="profilo" width="40px" height="40px" class="rounded-circle" />
+          <div class="d-flex justify-content-center justify-content-md-start mt-1">
+            <i class="bi bi-heart-fill me-md-3"></i>
+            <a href="#" class="text-white text-decoration-none d-none d-md-block">
+              <p>Brani che ti piacciono</p>
+            </a>
+          </div>
+          <div class="d-flex justify-content-center justify-content-md-start mt-1">
+            <i class="bi bi-bookmark me-md-3"></i>
+            <a href="#" class="text-white text-decoration-none d-none d-md-block">
+              <p>I tuoi episodi</p>
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2 bg-dark text-white">
-        <div class="d-flex mt-3 mb-4">
-          <i class="bi bi-bookmarks me-3"></i>
-          <a href="#" class="text-white text-decoration-none">
-            <p>LA TUA LIBRERIA</p>
-          </a>
-        </div>
-        <div class="d-flex mt-1">
-          <i class="bi bi-plus-square-fill me-3"></i>
-          <a href="#" class="text-white text-decoration-none">
-            <p>Crea playlist</p>
-          </a>
-        </div>
-        <div class="d-flex mt-1">
-          <i class="bi bi-heart-fill me-3"></i>
-          <a href="#" class="text-white text-decoration-none">
-            <p>Brani che ti piacciono</p>
-          </a>
-        </div>
-        <div class="d-flex mt-1">
-          <i class="bi bi-bookmark me-3"></i>
-          <a href="#" class="text-white text-decoration-none">
-            <p>I tuoi episodi</p>
-          </a>
-        </div>
-      </div>
+        <div id="main" class="col-10 bg-black text-white">
+          <div class="row">
+            <main>
+              <div
+                id="artistBackground"
+                class="container-fluid position-relative"
+                style="
+                  min-height: 40vh;
+                  background-size: contain;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  width: 100%;
+                "
+              >
+                <div class="container d-flex">
+                  <div class="d-flex align-items-center me-auto">
+                    <a href="#" id="prevCommand"><i class="fas fa-chevron-left me-3 text-white"></i></a>
+                    <a href="#" id="nextCommand"><i class="fas fa-chevron-right text-white"></i></a>
+                  </div>
 
-      <div id="main" class="col-10 bg-black text-white">
-        <div class="row">
-          <main>
-            <div id="artistBackground" class="container-fluid position-relative" style="min-height: 40vh; background-size: contain; background-position: center; background-repeat: no-repeat; width: 100%;">
-              <div class="container d-flex">
-                <div class="d-flex align-items-center me-auto">
-                  <a href="#" id="prevCommand"><i class="fas fa-chevron-left me-3 text-white"></i></a>
-                  <a href="#" id="nextCommand"><i class="fas fa-chevron-right text-white"></i></a>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-black text-white border-white dropdown-toggle rounded-pill"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Mario Rossi
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
                 </div>
 
-                <div class="dropdown">
-                  <button
-                    class="btn btn-black text-white border-white dropdown-toggle rounded-pill"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Mario Rossi
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </div>
-              </div>
-
-              <div id="artistHeader" class="col-8 position-absolute bottom-0 start-0 ms-3">
-                <!-- <h1>Nome band</h1>
+                <div id="artistHeader" class="col-8 position-absolute bottom-0 start-0 ms-3">
+                  <!-- <h1>Nome band</h1>
                 <p>numero ascolti mensili</p> -->
+                </div>
               </div>
-            </div>
 
-            <div class="container-fluid d-flex bg-dark py-3 align-items-center gap-4">
-              <i class="bi bi-play-circle-fill fs-1 text-success"></i>
-              <button class="btn btn-dark text-white px-3 py-1 border-white">FOLLOWING</button>
-              <i class="bi bi-three-dots"></i>
-            </div>
+              <div class="container-fluid d-flex bg-dark py-3 align-items-center gap-4">
+                <i class="bi bi-play-circle-fill fs-1 text-success"></i>
+                <button class="btn btn-dark text-white px-3 py-1 border-white">FOLLOWING</button>
+                <i class="bi bi-three-dots"></i>
+              </div>
 
-            <div>
-              <div class="container-fluid bg-dark">
-                <div class="d-flex justify-content-between"></div>
-                <div class="row">
-                  <div class="col-8">
-                    <h2 class="fs-4">POPOLARI</h2>
-                    <ol id="trackList" class="p-0 list-group-numbered">
-                      <!-- <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
+              <div>
+                <div class="container-fluid bg-dark">
+                  <div class="d-flex justify-content-between"></div>
+                  <div class="row">
+                    <div class="col-8">
+                      <h2 class="fs-4">POPOLARI</h2>
+                      <ol id="trackList" class="p-0 list-group-numbered">
+                        <!-- <li class="d-flex align-items-center list-group-item bg-dark text-white py-2">
                         <img src="./assets/imgs/main/image-15.jpg" alt="" style="width: 40px;" class="ms-2">
                         <p class="ms-2 mb-0 me-auto">titolo della canzone</p>
                         <p class="mb-0 me-auto">244.242</p>
@@ -188,132 +202,143 @@
                         <p class="mb-0 me-auto">244.242</p>
                         <p class="mb-0 me-1">1.28</p>
                       </li> -->
-                    </ol>
-                  </div>
+                      </ol>
+                    </div>
 
-                  <div class="col-4 bg-dark ps-5">
-                    <h3 class="me-5 fs-4">BRANI CHE TI PIACCIONO</h3>
-                    <div class="d-flex align-items-center">
-                      <img src="./assets/imgs/main/image-13.jpg" alt="like" style="width: 20%;" class="rounded-circle">
-                      <div class="ms-3">
-                        <h4 class="fs-6">hai messo mi piace a 11 brani</h4>
-                        <p>Di Yellowcard</p>
+                    <div class="col-4 bg-dark ps-5">
+                      <h3 class="me-5 fs-4">BRANI CHE TI PIACCIONO</h3>
+                      <div class="d-flex align-items-center">
+                        <img
+                          src="./assets/imgs/main/image-13.jpg"
+                          alt="like"
+                          style="width: 20%"
+                          class="rounded-circle"
+                        />
+                        <div class="ms-3">
+                          <h4 class="fs-6">hai messo mi piace a 11 brani</h4>
+                          <p>Di Yellowcard</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </main>
-        </div>
-        
-        <footer class="footer text-white py-4 bg-dark">
-          <div class="container mx-auto">
-            <div class="row">
-              <!-- Colonna 1 -->
-              <div class="col-md-2">
-                <ul class="list-unstyled">
-                  <li class="h6">Azienda</li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Chi siamo</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Opportunità di lavoro</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">For the Record</a></li>
-                </ul>
+            </main>
+          </div>
+
+          <footer class="footer text-white py-4 bg-dark text-center text-md-start">
+            <div class="container mx-auto">
+              <div class="row">
+                <!-- Colonna 1 -->
+                <div class="col-md-2">
+                  <ul class="list-unstyled">
+                    <li class="h6">Azienda</li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Chi siamo</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Opportunità di lavoro</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">For the Record</a></li>
+                  </ul>
+                </div>
+
+                <!-- Colonna 2 -->
+                <div class="col-md-2">
+                  <ul class="list-unstyled">
+                    <li class="h6">Community</li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Per artisti</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Sviluppatori</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Pubblicità</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Investitori</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Venditori</a></li>
+                  </ul>
+                </div>
+
+                <!-- Colonna 3 -->
+                <div class="col-md-2">
+                  <ul class="list-unstyled">
+                    <li class="h6">Link utili</li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Assistenza</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">App per cellulare gratuita</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Diritti del consumatore</a></li>
+                  </ul>
+                </div>
+
+                <!-- Colonna 4 -->
+                <div class="col-md-2">
+                  <ul class="list-unstyled">
+                    <li class="h6">Piani Spotify</li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Premium Individual</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Premium Duo</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Premium Family</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Premium Student</a></li>
+                    <li><a href="#" class="text-secondary text-decoration-none">Spotify Free</a></li>
+                  </ul>
+                </div>
+
+                <!-- Colonna 5 -->
+                <div class="col-md-4 text-center">
+                  <div class="d-flex justify-content-center gap-3 mb-2">
+                    <a href="https://www.facebook.com/Spotify/?locale=it_IT" target="_blank" class="text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="currentColor"
+                        class="bi bi-facebook"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                        />
+                      </svg>
+                    </a>
+                    <a href="https://www.instagram.com/spotify/" target="_blank" class="text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="currentColor"
+                        class="bi bi-instagram"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                        />
+                      </svg>
+                    </a>
+                    <a href="https://x.com/spotify?" target="_blank" class="text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="currentColor"
+                        class="bi bi-twitter"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <!-- Colonna 2 -->
-              <div class="col-md-2">
-                <ul class="list-unstyled">
-                  <li class="h6">Community</li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Per artisti</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Sviluppatori</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Pubblicità</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Investitori</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Venditori</a></li>
-                </ul>
-              </div>
-
-              <!-- Colonna 3 -->
-              <div class="col-md-2">
-                <ul class="list-unstyled">
-                  <li class="h6">Link utili</li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Assistenza</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">App per cellulare gratuita</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Diritti del consumatore</a></li>
-                </ul>
-              </div>
-
-              <!-- Colonna 4 -->
-              <div class="col-md-2">
-                <ul class="list-unstyled">
-                  <li class="h6">Piani Spotify</li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Premium Individual</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Premium Duo</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Premium Family</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Premium Student</a></li>
-                  <li><a href="#" class="text-secondary text-decoration-none">Spotify Free</a></li>
-                </ul>
-              </div>
-
-              <!-- Colonna 5 -->
-              <div class="col-md-4">
-                <div class="d-flex gap-3 mb-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    fill="currentColor"
-                    class="bi bi-facebook"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
-                    />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    fill="currentColor"
-                    class="bi bi-instagram"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
-                    />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    fill="currentColor"
-                    class="bi bi-twitter"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"
-                    />
-                  </svg>
+              <!-- Service Code e Copyright -->
+              <div class="row mt-4">
+                <div class="col-12">
+                  <p class="mb-0">© 2025 Spotify AB</p>
                 </div>
               </div>
             </div>
-            
-            <div class="row mt-4">
-              <div class="col-12">
-                <p class="mb-0">© 2025 Spotify AB</p>
-              </div>
-            </div>
-          </div>
-        </footer>
+          </footer>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous">
-  </script>
-  <script src="./artist.js"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./artist.js"></script>
+  </body>
 </html>
