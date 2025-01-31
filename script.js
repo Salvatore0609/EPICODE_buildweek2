@@ -95,7 +95,7 @@ function fetchAlbum(query) {
         const artist = par.artist;
 
         const div = document.createElement("div");
-        div.classList.add("col-md-4");
+        div.classList.add("col-lg-4", "col-sm-6");
 
         Math.floor(Math.random(par.album));
 
@@ -103,7 +103,7 @@ function fetchAlbum(query) {
                 <div class="card mb-3 bg-dark border-secondary text-light">
                     <div class="row g-0">
                       <div class="col-md-4">
-                        <img src="${album.cover_medium}" class="img-fluid rounded-start" alt="image" />
+                        <img src="${album.cover_medium}" class="img-fluid w-100 rounded-start" alt="image" />
                       </div>
                       <div class="col-md-8 d-flex align-items-center">
                         <div class="card-body p-0">
@@ -155,7 +155,7 @@ function fetchAlbum2(query) {
         const album = albumPar.album;
 
         const div = document.createElement("div");
-        div.classList.add("col");
+        div.classList.add("col-12", "col-sm-6", "col-md");
 
         Math.floor(Math.random(albumPar.album));
 
@@ -178,48 +178,47 @@ function fetchAlbum2(query) {
 }
 
 window.onload = () => {
-    currentTrack() 
-    fetchAlbum();
-    fetchAlbum2();
+  currentTrack();
+  fetchAlbum();
+  fetchAlbum2();
 };
 
 function currentTrack() {
-     // Recupera i dati della traccia dal localStorage
-     const currentTrack = JSON.parse(localStorage.getItem("currentTrack"));
-  
-     // Se i dati esistono, crea e mostra il toast automaticamente
-     if (currentTrack) {
-       const toast = createToast(currentTrack);
-       document.body.appendChild(toast);
-   
-       const toastElement = document.getElementById("playToast");
-       const toastInstance = new bootstrap.Toast(toastElement);
-       toastInstance.show();
-   
-       // Rimuovi il toast quando è nascosto
-       toastElement.addEventListener("hidden.bs.toast", function () {
-         toast.remove();
-         localStorage.removeItem("currentTrack");
-       });
-     }
+  // Recupera i dati della traccia dal localStorage
+  const currentTrack = JSON.parse(localStorage.getItem("currentTrack"));
+
+  // Se i dati esistono, crea e mostra il toast automaticamente
+  if (currentTrack) {
+    const toast = createToast(currentTrack);
+    document.body.appendChild(toast);
+
+    const toastElement = document.getElementById("playToast");
+    const toastInstance = new bootstrap.Toast(toastElement);
+    toastInstance.show();
+
+    // Rimuovi il toast quando è nascosto
+    toastElement.addEventListener("hidden.bs.toast", function () {
+      toast.remove();
+      localStorage.removeItem("currentTrack");
+    });
+  }
 }
 
-
 function createToast(track) {
-    const toast = document.createElement("div");
-    toast.id = "playToast";
-    toast.classList.add("toast", "align-items-center", "text-bg-dark");
-    toast.style.position = "fixed";
-    toast.style.bottom = "0";
-    toast.style.left = "50%";
-    toast.style.transform = "translateX(-50%)";
-    toast.style.width = "100vw";
-    toast.style.zIndex = "1050";
-    toast.style.borderTop = "1px secondary solid";
-  
-    toast.setAttribute("data-bs-autohide", "false");
-  
-    toast.innerHTML = `
+  const toast = document.createElement("div");
+  toast.id = "playToast";
+  toast.classList.add("toast", "align-items-center", "text-bg-dark");
+  toast.style.position = "fixed";
+  toast.style.bottom = "0";
+  toast.style.left = "50%";
+  toast.style.transform = "translateX(-50%)";
+  toast.style.width = "100vw";
+  toast.style.zIndex = "1050";
+  toast.style.borderTop = "1px secondary solid";
+
+  toast.setAttribute("data-bs-autohide", "false");
+
+  toast.innerHTML = `
       <div class="">
         <div class="toast-body">
           <div class="container-fluid toast-content" style="width: 100%; max-width: none;" data-bs-autohide="false">
@@ -255,7 +254,9 @@ function createToast(track) {
                   <div class="progress flex-grow-1 bg-secondary" style="height: 5px;">
                     <div class="progress-bar bg-white" role="progressbar" style="width: 18%; height: 5px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <span class="ms-2">${Math.floor(track.duration / 60)}:${(track.duration % 				60).toString().padStart(2, "0")}</span>
+                  <span class="ms-2">${Math.floor(track.duration / 60)}:${(track.duration % 60)
+    .toString()
+    .padStart(2, "0")}</span>
                 </div>
               </div>
             <div class="col-4 d-flex align-items-center justify-content-end">
@@ -270,35 +271,30 @@ function createToast(track) {
         </div>
       </div>
     </div>`;
-  
+
   return toast;
 }
-
 
 document.getElementById("playButton").addEventListener("click", function () {
   const toast = createToast();
   document.body.appendChild(toast);
 
-  
   const toastElement = document.getElementById("playToast");
   const toastInstance = new bootstrap.Toast(toastElement);
 
   toastInstance.show();
 
- 
   toastElement.addEventListener("hidden.bs.toast", function () {
     toast.remove();
   });
 });
-
-
 
 function prevCommand() {
   history.back();
 }
 
 function nextCommand() {
-  history.forward(); 
+  history.forward();
 }
 
 document.getElementById("prevCommand").addEventListener("click", function (event) {
