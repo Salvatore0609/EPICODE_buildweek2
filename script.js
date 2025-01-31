@@ -49,7 +49,7 @@ function fetchAlbum(query) {
         Math.floor(Math.random(par.album));
 
         div.innerHTML = `
-                <div class="card mb-3 bg-dark border-secondary text-light">
+                <div class="card mb-3 bg-dark text-light">
                     <div class="row g-0">
                       <div class="col-md-4">
                         <img src="${album.cover_medium}" class="img-fluid w-100 rounded-start" alt="image" />

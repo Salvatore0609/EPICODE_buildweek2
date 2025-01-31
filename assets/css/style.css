@@ -74,6 +74,11 @@ body{
 #main {
   overflow-y: scroll;
   height: calc(100vh - 62px);
+  background: rgb(0,0,0);
+background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 39%, rgba(71,71,71,1) 93%);
+background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 39%, rgba(71,71,71,1) 93%);
+background: linear-gradient(0deg, rgba(0,0,0,1) 39%, rgba(71,71,71,1) 93%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#474747",GradientType=1);
 }
 
 #main::-webkit-scrollbar {
@@ -93,4 +98,4 @@ body{
 }
 /* fine stile scrollbar*/
 
-/* stile nav bar */
+
