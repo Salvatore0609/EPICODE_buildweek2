@@ -152,7 +152,7 @@ function currentTrack() {
       <h1>${currentTrack.title || "Titolo non disponibile"}</h1>
       <p>${currentTrack.artist.name || "Artista sconosciuto"}</p>
       <p>Ascolta il nuovo brano</p>
-      <div class="position-absolute bottom-0 start-0 mb-2 ms-2 d-flex">
+      <div class="mt-5 d-flex">
         <button id="playButton" class="btn btn-success text-black rounded-pill px-4 me-3">Play</button>
         <button class="btn btn-dark rounded-pill text-white border-white px-4 me-3">Salva</button>
         <button class="btn btn-dark border-0"><i class="bi bi-three-dots"></i></button>
@@ -192,9 +192,9 @@ function createToast(track) {
       <div class="">
         <div class="toast-body">
           <div class="container-fluid toast-content" style="width: 100%; max-width: none;" data-bs-autohide="false">
-            <div class="row align-items-center">
-              <!-- Colonna 1: Copertina album e titolo -->
-              <div class="col-4 d-flex align-items-center">
+            <div class="row justify-content-center align-items-center">
+      
+              <div class="col-4 d-none d-sm-flex align-items-center">
                 <img src="${track.album.cover_small}" class="rounded me-2" alt="Album Cover" style="width: 50px;">
                 <strong class="me-3">${track.title}</strong>
                 <i class="far fa-heart"></i>
@@ -203,31 +203,33 @@ function createToast(track) {
             
               <div class="col-4 d-flex flex-column align-items-center justify-content-center">
                 <div class="d-flex align-items-center mb-2">
-                  <button id="prevButton" class="btn btn-dark rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                  <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
                     <i class="fa-solid fa-shuffle"></i>
                   </button>
-                  <button id="prevButton" class="btn btn-dark rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                  <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
                     <i class="fa-solid fa-backward-step" style="color: white;"></i>
                   </button>
-                  <button id="playPauseButton" class="btn btn-light rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                  <button id="playPauseButton" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
                     <i class="bi bi-play-fill" style="color: black;"></i>
                   </button>
-                  <button id="nextButton" class="btn btn-dark rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                  <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
                     <i class="fa-solid fa-forward-step" style="color: white;"></i>
                   </button>
-                  <button id="prevButton" class="btn btn-dark rounded-circle d-flex justify-content-center me-2" style="width: 40px; height: 40px;">
+                  <button class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
                     <i class="fa-solid fa-retweet"></i>
                   </button>
                 </div>
-                <div class="d-flex align-items-center w-100">
+                <div class="d-none d-sm-flex align-items-center w-100">
                   <span class="me-2">00:58</span>
                   <div class="progress flex-grow-1 bg-secondary" style="height: 5px;">
                     <div class="progress-bar bg-white" role="progressbar" style="width: 18%; height: 5px" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <span class="ms-2">${Math.floor(track.duration / 60)}:${(track.duration % 60).toString().padStart(2, "0")}</span>
+                  <span class="ms-2">${Math.floor(track.duration / 60)}:${(track.duration % 60)
+    .toString()
+    .padStart(2, "0")}</span>
                 </div>
               </div>
-            <div class="col-4 d-flex align-items-center justify-content-end">
+            <div class="col-4 d-none d-sm-flex align-items-center justify-content-end">
               <i class="fas fa-microphone me-3"></i>
               <i class="fas fa-bars me-3"></i>
               <i class="bi bi-speaker me-3"></i>
