@@ -1,3 +1,20 @@
+const URL = "https://deezerdevs-deezer.p.rapidapi.com/search"; 
+
+const search = document.getElementById("search");
+const btnSearch = document.getElementById("btnSearch");
+const formSpotifySearch = document.getElementById("formSpotifySearch");
+
+formSpotifySearch.addEventListener("submit", function (event) {
+    event.preventDefault(); 
+    const query = search.value.trim();
+    if (query) {
+        fetchSongs(query);
+    } else {
+        alert("Inserisci una canzone da cercare!");
+    }
+});
+
+
 const params = new URLSearchParams(window.location.search);
 const artistId = params.get("artistId");
 
@@ -77,7 +94,7 @@ fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + artistId, {
         const toastInstance = new bootstrap.Toast(toastElement);
         toastInstance.show();
       
-        // Rimuovi il toast quando è nascosto
+       
         toastElement.addEventListener("hidden.bs.toast", function () {
           toast.remove();
         });
@@ -176,6 +193,53 @@ document.getElementById("nextCommand").addEventListener("click", function (event
   nextCommand();
 });
 
+
+function fetchSongs(query) {
+  fetch(`${URL}?q=${query}`, {
+    headers: {
+      "Content-Type": "application/json",
+      "x-rapidapi-key": "a0f81ebcf9mshd58ff0b75cbb17ap1a0a4ejsn6ea766dd0c85",
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Ci dispiace ma non abbiamo trovato la tua canzone");
+      }
+      return response.json();
+    })
+    .then((dataSong) => {
+      console.log("Risultati ricerca:", dataSong);
+
+      if (dataSong.data.length === 0) {
+        alert("Nessun risultato trovato.");
+        return;
+      }
+
+      const firstResult = dataSong.data[0];
+
+      if (firstResult.artist && firstResult.artist.name.toLowerCase() === query.toLowerCase()) {
+        window.location.href = `./pageArtist.html?artistId=${firstResult.artist.id}`;
+        return;
+      }
+
+      if (firstResult.album && firstResult.album.title.toLowerCase() === query.toLowerCase()) {
+        window.location.href = `./pageAlbum.html?albumId=${firstResult.album.id}`;
+        return;
+      }
+
+      if (firstResult.album) {
+        window.location.href = `./pageAlbum.html?albumId=${firstResult.album.id}`;
+      } else if (firstResult.artist) {
+        window.location.href = `./pageArtist.html?artistId=${firstResult.artist.id}`;
+      } else {
+        alert("Nessun risultato valido trovato.");
+      }
+    })
+    .catch((err) => {
+      console.error("Errore nella ricerca dell'album:", err);
+    });
+}
 
 
   

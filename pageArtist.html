@@ -18,15 +18,24 @@
         <a href="./index.html" class="fs-2 me-auto">
           <i class="bi bi-spotify text-white"></i>
         </a>
-        
-        <form class="d-flex me-auto" role="search">
+
+        <form id="formSpotifySearch" class="d-flex me-auto" role="search">
           <div class="input-group">
-            <a href="./index.html" class=" text-decoration-none">
-            <i class="bi bi-house-door d-flex align-items-center fs-2 text-white me-3 bg-dark p-2 rounded-circle"></i>
-            <button class="btn btn-dark rounded-start-pill" type="submit"></a>
+            <a href="./index.html" class="text-decoration-none">
+              <i
+                class="bi bi-house-door d-flex align-items-center fs-2 text-white me-3 bg-dark p-2 rounded-circle"
+              ></i>
+            </a>
+            <button id="btnSearch" class="btn btn-dark rounded-start-pill" type="submit">
               <i class="bi bi-search"></i>
             </button>
-            <input class="form-control bg-dark border-0" type="search" placeholder="Search" aria-label="Search" />
+            <input
+              id="search"
+              class="form-control bg-dark border-0 text-white"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
             <button class="btn btn-dark rounded-end-pill text-white" type="submit">
               <i class="bi bi-archive"></i>
             </button>
